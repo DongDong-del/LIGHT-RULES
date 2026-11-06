@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#070711">
+  <title>LIGHT RULES — 픽셀 광학 퍼즐</title>
+  <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <header>
+    <div class="brand"><span class="spark">✦</span><div><h1>LIGHT RULES</h1><p>PIXEL OPTICS LAB</p></div></div>
+    <div class="level-meta"><span id="level-label">LEVEL 01</span><span id="status">빛의 규칙을 연결하세요</span></div>
+    <button id="help" class="icon-button" aria-label="도움말">?</button>
+  </header>
+
+  <main>
+    <section class="game-shell" aria-label="게임 보드">
+      <div class="board-wrap" id="board-wrap">
+        <canvas id="game" width="960" height="620"></canvas>
+        <div class="gesture-hint" id="gesture-hint">두 손가락으로 확대 · 이동</div>
+        <div class="win-panel" id="win-panel" hidden>
+          <span>OPTICAL PATH COMPLETE</span><h2>규칙을 밝혔습니다</h2>
+          <button id="next-level">다음 실험 →</button>
+        </div>
+      </div>
+      <aside>
+        <div class="mission"><span>MISSION</span><p>모든 수광기에 같은 색의 빛을 연결하세요.</p></div>
+        <div class="receivers" id="receiver-list"></div>
+        <div class="divider"></div>
+        <span class="eyebrow">도구 선택</span>
+        <button class="tool active" data-tool="mirror"><b>／</b><span>반사경<small>탭하여 설치</small></span><i id="mirror-count">× 4</i></button>
+        <button class="tool" data-tool="remove"><b>×</b><span>지우개<small>설치물 제거</small></span></button>
+        <button id="reset" class="reset">↻ 실험 초기화</button>
+        <p class="tip">반사경을 설치하면 도구 선택이 자동으로 해제됩니다.</p>
+      </aside>
+    </section>
+  </main>
+
+  <div class="update-toast" id="update-toast" hidden><span>새 버전이 준비됐습니다.</span><button id="reload">새로고침</button></div>
+  <dialog id="help-dialog"><button id="close-help" aria-label="닫기">×</button><h2>빛의 규칙</h2><p>반사경을 놓아 네온 광선을 같은 색의 수광기까지 연결하세요. 설치한 반사경을 다시 누르면 회전합니다.</p><ul><li>모바일: 두 손가락 확대·축소 및 이동</li><li>PC: 마우스 휠 확대, 드래그 이동</li><li>반사경 설치 후 선택 자동 해제</li></ul></dialog>
+  <script type="module" src="./src/game.js"></script>
+</body>
+</html>
